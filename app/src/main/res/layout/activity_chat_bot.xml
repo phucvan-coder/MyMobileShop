@@ -42,7 +42,7 @@
             android:padding="15dp"
             android:layout_toStartOf="@id/sendButton"
             android:layout_alignParentStart="true"
-            android:hint="Ingrese consulta"
+            android:hint="Text"
             android:imeOptions="actionDone"
             android:inputType="textShortMessage"
             android:textColor="@color/colorAccent"/>
@@ -52,7 +52,7 @@
             android:layout_width="70dp"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:hint="Enviar"/>
+            android:hint="Send"/>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
