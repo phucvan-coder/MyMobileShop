@@ -1,4 +1,4 @@
-package com.example.mobilestore;
+package com.example.mobilestore.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.mobilestore.MainActivity;
+import com.example.mobilestore.R;
+import com.example.mobilestore.chatbot.ChatBotActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class WelcomeActivity extends AppCompatActivity {

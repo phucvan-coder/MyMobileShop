@@ -1,4 +1,4 @@
-package com.example.mobilestore;
+package com.example.mobilestore.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mobilestore.MainActivity;
+import com.example.mobilestore.R;
 import com.example.mobilestore.models.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -95,6 +97,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     database.getReference().child("Users").child(id).setValue(userModel);
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(RegistrationActivity.this, "Registration Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
                 } else {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(RegistrationActivity.this, "Error" + task.getException(), Toast.LENGTH_SHORT).show();

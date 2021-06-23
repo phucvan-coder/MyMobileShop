@@ -1,4 +1,4 @@
-package com.example.mobilestore;
+package com.example.mobilestore.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mobilestore.MainActivity;
+import com.example.mobilestore.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -81,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this, "Login Successfully", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 } else {
                     progressBar.setVisibility(View.GONE);
                     Toast.makeText(LoginActivity.this, "Error" + task.isSuccessful(), Toast.LENGTH_SHORT).show();

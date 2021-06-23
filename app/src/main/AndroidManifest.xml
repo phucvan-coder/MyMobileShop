@@ -12,17 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileStore">
         <!--chatbot-->
-        <activity android:name=".chatbot.ChatBotActivity"></activity>
+        <activity android:name=".chatbot.ChatBotActivity">
+
+        </activity>
         <!--Welcome activity-->
-        <activity android:name=".WelcomeActivity">
+        <activity android:name=".activities.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".activities.RegistrationActivity" />
+        <activity android:name=".activities.LoginActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
