@@ -6,9 +6,24 @@
     tools:context=".OffersFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:text="Offers" />-->
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Offers" />
+        android:layout_height="300dp"
+        android:src="@drawable/chatbot" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_gravity="center_horizontal"
+        android:text="Press here to start"
+        android:textStyle="bold"/>
 
 </FrameLayout>

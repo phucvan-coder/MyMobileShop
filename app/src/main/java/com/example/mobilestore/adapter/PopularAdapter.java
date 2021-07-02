@@ -1,17 +1,20 @@
 package com.example.mobilestore.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.mobilestore.R;
+import com.example.mobilestore.activities.ViewAllActivity;
 import com.example.mobilestore.models.PopularModel;
 
 import org.jetbrains.annotations.NotNull;
@@ -41,6 +44,15 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
         holder.rating.setText(popularModelList.get(position).getRating());
         holder.description.setText(popularModelList.get(position).getDescription());
         holder.discount.setText(popularModelList.get(position).getDiscount());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ViewAllActivity.class);
+                intent.putExtra("type", popularModelList.get(position).getType());
+                Toast.makeText(context, "type: " + popularModelList.get(position).getType(), Toast.LENGTH_SHORT).show();
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

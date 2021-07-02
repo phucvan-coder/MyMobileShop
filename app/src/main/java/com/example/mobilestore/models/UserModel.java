@@ -1,7 +1,7 @@
 package com.example.mobilestore.models;
 
 public class UserModel {
-    String name, email, password;
+    String name, email, password, profileImg;
 
     public UserModel() {
 
@@ -11,6 +11,14 @@ public class UserModel {
         this.name = name;
         this.email = email;
         this.password = password;
+    }
+
+    public String getProfileImg() {
+        return profileImg;
+    }
+
+    public void setProfileImg(String profileImg) {
+        this.profileImg = profileImg;
     }
 
     public String getName() {

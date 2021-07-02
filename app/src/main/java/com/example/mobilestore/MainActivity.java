@@ -3,10 +3,14 @@ package com.example.mobilestore;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.mobilestore.models.UserModel;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -16,14 +20,33 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mobilestore.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+
+import org.jetbrains.annotations.NotNull;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
+
+    FirebaseStorage storage;
+    FirebaseAuth auth;
+    FirebaseDatabase database;
 
     private AppBarConfiguration mAppBarConfiguration;
 //    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -45,6 +68,27 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView headerName = headerView.findViewById(R.id.nav_header_name);
+        TextView headerEmail = headerView.findViewById(R.id.nav_header_email);
+        CircleImageView headerImg = headerView.findViewById(R.id.nav_header_img);
+
+        database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                UserModel userModel = snapshot.getValue(UserModel.class);
+                headerName.setText(userModel.getName());
+                headerEmail.setText(userModel.getEmail());
+                Glide.with(MainActivity.this).load(userModel.getProfileImg()).into(headerImg);
+            }
+
+            @Override
+            public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override

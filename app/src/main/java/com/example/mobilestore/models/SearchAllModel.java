@@ -1,28 +1,21 @@
 package com.example.mobilestore.models;
 
-public class RecommendedModel {
+import java.io.Serializable;
 
+public class SearchAllModel implements Serializable {
     String name, description, rating, img_url, type;
     int price;
 
-    public RecommendedModel() {
+    public SearchAllModel() {
     }
 
-    public RecommendedModel(String name, String description, String rating, String img_url, String type, int price) {
+    public SearchAllModel(String name, String description, String rating, String img_url, String type, int price) {
         this.name = name;
         this.description = description;
         this.rating = rating;
         this.img_url = img_url;
         this.type = type;
         this.price = price;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public String getName() {
@@ -55,6 +48,14 @@ public class RecommendedModel {
 
     public void setImg_url(String img_url) {
         this.img_url = img_url;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public int getPrice() {
