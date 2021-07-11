@@ -52,6 +52,7 @@ public class ProfileFragment extends Fragment {
         storage = FirebaseStorage.getInstance();
 
         profileImg = root.findViewById(R.id.profile_img);
+        profileImg.setVisibility(View.VISIBLE);
 //        name = root.findViewById(R.id.profile_name);
 //        email = root.findViewById(R.id.profile_email);
 //        number = root.findViewById(R.id.profile_number);

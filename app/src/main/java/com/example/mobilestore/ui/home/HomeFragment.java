@@ -1,14 +1,18 @@
 package com.example.mobilestore.ui.home;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,14 +40,19 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    TextView popularly, explorary, recommendar;
     ScrollView scrollView;
+
     ProgressBar progressBar;
     RecyclerView popularRec, homecatRec, recommendedRec;
     FirebaseFirestore db;
-    EditText search;
+    AutoCompleteTextView search;
     Button scan, seacrhing;
+    //    string recommend
+    private static final String[] products = new String[]{
+            "Phone", "Iphone", "Iphone 12", "LapTop", "Laptop msi", "Laptop Asus", "Laptop Acer", "Laptop HP", "Watch", "Accessories", "tablet", "Iphone", "Ipad", "Xiaomi", "Xiaomi Redmi A11",
+    };
     //    pop item là pop item
-
     List<PopularModel> popularModelList;
     PopularAdapter popularAdapter;
 
@@ -70,18 +79,28 @@ public class HomeFragment extends Fragment {
         scrollView.setVisibility(View.GONE);
 
         search = root.findViewById(R.id.search_box);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.support_simple_spinner_dropdown_item, products);
+        search.setThreshold(1);
+        search.setAdapter(adapter);
         seacrhing = root.findViewById(R.id.btn_search);
 
         seacrhing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String searchItem = search.getText().toString();
-                if (searchItem.isEmpty())
-                    Toast.makeText(getActivity(),"Your search box is empty", Toast.LENGTH_SHORT).show();
+                if (searchItem.isEmpty()) {
+//                    Toast.makeText(getActivity(), "Your search box is empty", Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("Empty text")
+                            .setMessage("Please type what you want to search !!!")
+                            .setNegativeButton(android.R.string.yes, null)
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
                 else {
                     System.out.println(searchItem);
                     Intent intent = new Intent(getActivity(), SearchActivity.class);
-                    intent.putExtra("type",searchItem);
+                    intent.putExtra("type", searchItem);
                     startActivity(intent);
 
                 }
@@ -121,7 +140,7 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
-//        phần này là của home lấy truy vấn từ cơ sở dữ liệu xong ném vô, đã code là phải ghi chú để mr công xem mr khoái
+//        phần này là của home lấy truy vấn từ cơ sở dữ liệu xong ném vô, đã code là phải ghi chú để mr công xem mr kong khoái
         homecatRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
         categoryList = new ArrayList<>();
         homeAdapter = new HomeAdapter(getActivity(), categoryList);

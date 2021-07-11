@@ -23,7 +23,7 @@
 
         <TextView
             android:id="@+id/cat_home_name"
-            android:layout_width="65dp"
+            android:layout_width="90dp"
             android:layout_height="60dp"
             android:text="Category Name"
             android:textStyle="bold"

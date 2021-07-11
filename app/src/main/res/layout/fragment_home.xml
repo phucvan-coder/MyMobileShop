@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/search_box"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
@@ -74,17 +74,17 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/view_all_popular"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="7dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/alice"
-                    android:gravity="end"
-                    android:text="View All"
-                    android:textColor="@color/purple_700"
-                    android:textSize="16sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/view_all_popular"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="7dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/alice"-->
+<!--                    android:gravity="end"-->
+<!--                    android:text="View All"-->
+<!--                    android:textColor="@color/purple_700"-->
+<!--                    android:textSize="16sp" />-->
 
             </LinearLayout>
 
@@ -111,17 +111,17 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/view_all_explore"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="7dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/alice"
-                    android:gravity="end"
-                    android:text="View All"
-                    android:textColor="@color/purple_700"
-                    android:textSize="16sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/view_all_explore"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="7dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/alice"-->
+<!--                    android:gravity="end"-->
+<!--                    android:text="View All"-->
+<!--                    android:textColor="@color/purple_700"-->
+<!--                    android:textSize="16sp" />-->
 
             </LinearLayout>
 
@@ -148,17 +148,17 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/view_all_recommended"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="7dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/alice"
-                    android:gravity="end"
-                    android:text="View All"
-                    android:textColor="@color/purple_700"
-                    android:textSize="16sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/view_all_recommended"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginRight="7dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:fontFamily="@font/alice"-->
+<!--                    android:gravity="end"-->
+<!--                    android:text="View All"-->
+<!--                    android:textColor="@color/purple_700"-->
+<!--                    android:textSize="16sp" />-->
 
             </LinearLayout>
 

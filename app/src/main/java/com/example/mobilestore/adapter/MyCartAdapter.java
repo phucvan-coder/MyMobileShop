@@ -55,6 +55,10 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         return totalPrice;
     }
 
+    public void clearMemory() {
+        if (cartModelList.size() > 0) cartModelList.clear();
+    }
+
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
 

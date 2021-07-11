@@ -101,8 +101,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="@string/reload"
-        android:tooltipText="Reload your activity"
+        android:text="Reload"
         app:layout_constraintStart_toEndOf="@+id/filter"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="16dp" />

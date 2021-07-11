@@ -20,22 +20,22 @@
     <fragment
         android:id="@+id/nav_category"
         android:name="com.example.mobilestore.ui.category.CategoryFragment"
-        android:label="@string/category"
+        android:label="All product"
         tools:layout="@layout/fragment_category" />
     <fragment
         android:id="@+id/nav_offers"
         android:name="com.example.mobilestore.OffersFragment"
-        android:label="@string/offers"
+        android:label="Chat bot"
         tools:layout="@layout/fragment_offers" />
     <fragment
         android:id="@+id/nav_new_products"
         android:name="com.example.mobilestore.NewProductsFragment"
-        android:label="@string/new_products"
+        android:label="Shop Address"
         tools:layout="@layout/fragment_new_products" />
     <fragment
         android:id="@+id/nav_my_orders"
         android:name="com.example.mobilestore.MyOrdersFragment"
-        android:label="@string/my_orders"
+        android:label="Log out"
         tools:layout="@layout/fragment_my_orders" />
     <fragment
         android:id="@+id/nav_my_carts"

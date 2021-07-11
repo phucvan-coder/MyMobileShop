@@ -48,6 +48,8 @@ public class ViewAllActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
         String type = getIntent().getStringExtra("type");
+        String productname = getIntent().getStringExtra("productname");
+        String Recommend = getIntent().getStringExtra("Recommend");
         recyclerView = findViewById(R.id.view_all_rec);
         recyclerView.setVisibility(View.GONE);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -127,9 +129,9 @@ public class ViewAllActivity extends AppCompatActivity {
             });
         }
 
-//        milk for milk for milk the milk milk milk
-        if (type != null && type.equalsIgnoreCase("milk")) {
-            firestore.collection("AllProducts").whereEqualTo("type", "milk").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//        accessories accessories accessories nhất định là acccesories
+        if (type != null && type.equalsIgnoreCase("accessories")) {
+            firestore.collection("AllProducts").whereEqualTo("type", "accessories").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -144,7 +146,25 @@ public class ViewAllActivity extends AppCompatActivity {
                 }
             });
         }
+        else if (Recommend != null && Recommend.equalsIgnoreCase("rec") && type != null) {
+            System.out.println(Recommend);
+            System.out.println(productname);
+            System.out.println(type);
+            firestore.collection("AllProducts").whereEqualTo("name", productname).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+                    viewAllModelList.clear();
+                    for (DocumentSnapshot documentSnapshot : task.getResult().getDocuments()) {
+                        ViewAllModel viewAllModel = documentSnapshot.toObject(ViewAllModel.class);
+                        viewAllModelList.add(viewAllModel);
+                        viewAllAdapter.notifyDataSetChanged();
+                        progressBar.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
+                    }
 
+                }
+            });
+        }
     }
 
     @Override

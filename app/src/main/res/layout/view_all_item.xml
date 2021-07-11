@@ -58,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alice"
-                    android:text="Price $"
+                    android:text="Price: "
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

@@ -50,7 +50,10 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
             public void onClick(View v) {
                 Intent intent = new Intent(context, ViewAllActivity.class);
                 intent.putExtra("type", list.get(position).getType());
-                Toast.makeText(context, "type: " + list.get(position).getType(), Toast.LENGTH_SHORT).show();
+                intent.putExtra("productname",list.get(position).getName());
+                intent.putExtra("Recommend","rec");
+//                Toast.makeText(context, "type: " + list.get(position).getType(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "name: " + list.get(position).getName(), Toast.LENGTH_SHORT).show();
                 context.startActivity(intent);
             }
         });

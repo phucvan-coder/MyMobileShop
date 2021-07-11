@@ -70,6 +70,7 @@ public class RegistrationActivity extends AppCompatActivity {
         String userName = name.getText().toString();
         String userEmail = email.getText().toString();
         String userPassword = password.getText().toString();
+        String rate = "normal";
 
         if (TextUtils.isEmpty(userName)) {
             Toast.makeText(this, "Name is Empty", Toast.LENGTH_SHORT).show();
@@ -92,7 +93,7 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull @NotNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    UserModel userModel = new UserModel(userName, userEmail, userPassword);
+                    UserModel userModel = new UserModel(userName, userEmail, userPassword, rate);
                     String id = task.getResult().getUser().getUid();
                     database.getReference().child("Users").child(id).setValue(userModel);
                     progressBar.setVisibility(View.GONE);
